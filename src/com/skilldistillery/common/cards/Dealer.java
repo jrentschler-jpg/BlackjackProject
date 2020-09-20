@@ -17,44 +17,50 @@ public class Dealer extends Player {
 		theDealerHand = new BlackjackHand();
 		super.setName("Blackjack Dealer");
 	}
+
 //  the Dealer will add a card 
 	public void addCard(Card card) {
 		theDealerHand.addCard(card);
 	}
+
 //  the Dealer with deal a card 
 	public Card dealCard() {
 		return cards.dealCard();
 	}
+
 //  the Dealer will get the hand value 
 	public int getHandValue() {
 		theHandValue = theDealerHand.getHandValue();
 		return theHandValue;
 
 	}
+
 //  the Dealer will deal the first hand. Call on the List of cards, for, if/else to display what the dealer has drawn 	
 	public void theDealersFirstHand() {
 		List<Card> dealerCards = theDealerHand.getCards();
 		System.out.print("The Blackjack Dealer has ");
 		for (int i = 0; i < dealerCards.size(); i++) {
-			if(i == 0) {
-//				make a prettier sysout line for visual esthetics 
+			if (i == 0) {
+
 				System.out.println(" of ");
-			}else {
+			} else {
 				System.out.println(dealerCards.get(i));
 			}
-			
+
 		}
 	}
+
 	public void showTheDealersHand() {
 		List<Card> dealerCards = theDealerHand.getCards();
 		System.out.print("The Blackjack Dealer has ");
 		for (int i = 0; i < dealerCards.size(); i++) {
 			System.out.println(dealerCards.get(i) + " ");
-			
+
 		}
 	}
+
 	public boolean isBlackJack() {
-		if(getHandValue() == 21) {
+		if (getHandValue() == 21) {
 			System.out.println("The Blackjack Dealer got Blackjack!! The Dealer WINS!!!");
 			List<Card> dealerCards = theDealerHand.getCards();
 			for (Card card : dealerCards) {
@@ -64,16 +70,18 @@ public class Dealer extends Player {
 		}
 		return false;
 	}
+
 	public boolean isBust() {
-		if(getHandValue()> 21) {
+		if (getHandValue() > 21) {
 			System.out.println("The Blackjack Dealer is BUSTED!!!");
 			showTheDealersHand();
 			return true;
 		}
 		return false;
 	}
+
 	public boolean isTwentyOne() {
-		if(getHandValue()==21) {
+		if (getHandValue() == 21) {
 			System.out.println("The Blackjack Dealer hit 21! !!!");
 			List<Card> dealerCards = theDealerHand.getCards();
 			for (Card card : dealerCards) {
@@ -82,38 +90,43 @@ public class Dealer extends Player {
 			return true;
 		}
 		return false;
-		
+
 	}
+
 	public void printDeckofCards() {
 		List<Card> cardDeck = cards.getCardsInDeck();
 		for (Card card : cardDeck) {
 			System.out.println(card);
 		}
-		
-		}
-		public void dealerShuffler() {
-			List<Card> cardDeck = cards.getCardsInDeck();
-			Collections.shuffle(cardDeck);
-		}
-		public int getDeckSize() {
-			List<Card> cardDeck = cards.getCardsInDeck();
-			return cardDeck.size();
-			
-		}
-		public void clear() {
-			theDealerHand.clear();
-		}
-		@Override
-		public String toString() {
-			StringBuilder builder = new StringBuilder();
-			builder.append("Dealer [theDealerHand= ");
-			builder.append(theDealerHand);
-			builder.append(", cards=");
-			builder.append(cards);
+
+	}
+
+	public void dealerShuffler() {
+		List<Card> cardDeck = cards.getCardsInDeck();
+		Collections.shuffle(cardDeck);
+	}
+
+	public int getDeckSize() {
+		List<Card> cardDeck = cards.getCardsInDeck();
+		return cardDeck.size();
+
+	}
+
+	public void clear() {
+		theDealerHand.clear();
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Dealer [theDealerHand= ");
+		builder.append(theDealerHand);
+		builder.append(", cards=");
+		builder.append(cards);
 //			builder.append(", theHandValue=");
 //			builder.append(theHandValue);
-			builder.append("]");
-			return builder.toString();
-		}
+		builder.append("]");
+		return builder.toString();
+	}
 
 }

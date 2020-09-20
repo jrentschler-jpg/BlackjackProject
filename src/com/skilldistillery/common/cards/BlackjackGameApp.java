@@ -167,15 +167,15 @@ public class BlackjackGameApp {
 			//the dealer will show his hand
 			//and keep playing
 			if(blackjackPlayer.getHandValue() == blackjackDealer.getHandValue()) {
-				System.out.println("PUSH!");
 				blackjackDealer.showTheDealersHand();
+				System.out.println("PUSH!");
 				keepPlayingGame();
 			//else, the dealer is greater than 16 and less than 21 
 				//the player either has 21 
 				//or a bust
 				//and will check for win
 		}else if(blackjackDealer.getHandValue() >16 && blackjackDealer.getHandValue()<21) {
-			blackjackPlayer.isTwentyOne();
+//			blackjackPlayer.isTwentyOne();
 			blackjackPlayer.isBust();
 			checkingWin();
 		}
@@ -191,8 +191,7 @@ public class BlackjackGameApp {
 	private boolean keepPlayingGame() {
 		char sadFace = '\u2639';
 		char smileFace = '\u263A';
-//		char bjCard = '\u10cf';
-		
+
 		System.out.println("Playing Blackjack" + "\u2662" +"\u2661"+ "\u2667" +"\u2664"+ "is fun! Why not play another round and beat the Dealer?");
 		System.out.println("Feeling lucky " + smileFace +    " ? Enter 1 to Play again.");
 		System.out.println("Not Feeling lucky " + sadFace+ " ? Enter 2 Quit the game.");
